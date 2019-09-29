@@ -1,5 +1,3 @@
 <resources>
     <string name="app_name">AndroidLab</string>
-    <string name="tv_text">Now you are on screen %1$s</string>
-    <string name="button_text">Go to screen %1$s</string>
 </resources>
