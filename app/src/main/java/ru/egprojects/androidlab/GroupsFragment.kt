@@ -12,9 +12,10 @@ class GroupsFragment : Fragment() {
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
+        activity!!.title = getString(R.string.menu_groups)
         return inflater.inflate(R.layout.fragment_groups, container, false).apply {
-            tv_page4.text = getString(R.string.menu_groups)
-            btn_page4.setOnClickListener {
+            tv_groups_title.text = getString(R.string.menu_groups)
+            btn_groups_new.setOnClickListener {
                 activity?.supportFragmentManager?.beginTransaction()
                         ?.replace(R.id.nav_host_fragment, GroupCreationFragment())
                         ?.addToBackStack(null)

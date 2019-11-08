@@ -12,12 +12,15 @@ class GroupCreationFragment : Fragment() {
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_group_creation, container, false).apply {
-            btn_page5.setOnClickListener {
+        activity!!.title = getString(R.string.title_group_creation)
+        return inflater.inflate(
+                R.layout.fragment_group_creation, container, false
+        ).apply {
+            btn_group_creation_create.setOnClickListener {
                 val fragment = GroupFragment.newInstance(
-                        et_page5_field1.text.toString(),
-                        et_page5_field2.text.toString(),
-                        et_page5_field3.text.toString()
+                        et_group_creation_title.text.toString(),
+                        et_group_creation_subtitle.text.toString(),
+                        et_group_creation_desc.text.toString()
                 )
                 activity?.supportFragmentManager?.beginTransaction()
                         ?.replace(R.id.nav_host_fragment, fragment)

@@ -9,15 +9,15 @@ import kotlinx.android.synthetic.main.fragment_group.view.*
 
 class GroupFragment : Fragment() {
     companion object {
-        private const val ARG_FIELD1 = "field1"
-        private const val ARG_FIELD2 = "field2"
-        private const val ARG_FIELD3 = "field3"
+        private const val ARG_TITLE = "title"
+        private const val ARG_SUBTITLE = "subtitle"
+        private const val ARG_DESC = "desc"
 
-        fun newInstance(field1: String, field2: String, field3: String) = GroupFragment().apply {
+        fun newInstance(title: String, subtitle: String, desc: String) = GroupFragment().apply {
             arguments = Bundle().apply {
-                putString(ARG_FIELD1, field1)
-                putString(ARG_FIELD2, field2)
-                putString(ARG_FIELD3, field3)
+                putString(ARG_TITLE, title)
+                putString(ARG_SUBTITLE, subtitle)
+                putString(ARG_DESC, desc)
             }
         }
     }
@@ -25,10 +25,11 @@ class GroupFragment : Fragment() {
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
+        activity!!.title = getString(R.string.title_group)
         return inflater.inflate(R.layout.fragment_group, container, false).apply {
-            tv_page6_field1.text = arguments?.getString(ARG_FIELD1)
-            tv_page6_field2.text = arguments?.getString(ARG_FIELD2)
-            tv_page6_field3.text = arguments?.getString(ARG_FIELD3)
+            tv_group_title.text = arguments?.getString(ARG_TITLE)
+            tv_group_subtitle.text = arguments?.getString(ARG_SUBTITLE)
+            tv_group_desc.text = arguments?.getString(ARG_DESC)
         }
     }
 }

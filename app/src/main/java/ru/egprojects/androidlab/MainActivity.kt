@@ -25,7 +25,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         )
         drawer_main.addDrawerListener(toggle)
         toggle.syncState()
+
         nav_view_main.setNavigationItemSelectedListener(this)
+        title = getString(R.string.menu_friends)
 
         val fragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
         if (fragment == null) {
@@ -60,8 +62,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             drawer_main.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
-            val tag = supportFragmentManager.fragments[0].tag
-            if (tag != null) nav_view_main.setCheckedItem(tag.toInt())
+
+            val itemId = supportFragmentManager.fragments[0].tag?.toInt()
+            if (itemId != null) nav_view_main.setCheckedItem(itemId)
         }
     }
 }

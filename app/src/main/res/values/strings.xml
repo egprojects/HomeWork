@@ -13,9 +13,11 @@
     <string name="menu_search">Search</string>
     <string name="menu_groups">Groups</string>
 
-    <string name="button_next">Go next</string>
+    <string name="button_create_group">Create group</string>
 
-    <string name="page5_field1_hint">Field #1</string>
-    <string name="page5_field2_hint">Field #2</string>
-    <string name="page5_field3_hint">Field #3</string>
+    <string name="group_creation_title_hint">Title</string>
+    <string name="group_creation_subtitle_hint">Subtitle</string>
+    <string name="group_creation_desc_hint">Description</string>
+    <string name="title_group_creation">Create group</string>
+    <string name="title_group">Group</string>
 </resources>
