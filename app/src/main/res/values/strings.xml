@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">AndroidLab</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">AndroidLab</string>
+    <string name="nav_header_subtitle">android.lab@kpfu.ru</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_friends">Friends</string>
+    <string name="menu_messages">Messages</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_groups">Groups</string>
+
+    <string name="button_next">Go next</string>
+
+    <string name="page5_field1_hint">Field #1</string>
+    <string name="page5_field2_hint">Field #2</string>
+    <string name="page5_field3_hint">Field #3</string>
 </resources>
