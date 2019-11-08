@@ -41,12 +41,11 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         val fragment = when (item.itemId) {
             R.id.nav_friends -> FriendsFragment()
-            R.id.nav_messages -> SearchFragment()
-            R.id.nav_search -> MessagesFragment()
+            R.id.nav_messages -> MessagesFragment()
+            R.id.nav_search -> SearchFragment()
             else -> GroupsFragment()
         }
 
-        title = item.title
         supportFragmentManager.beginTransaction()
                 .replace(R.id.nav_host_fragment, fragment, item.itemId.toString())
                 .addToBackStack(null)
