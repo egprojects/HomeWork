@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">AndroidLab</string>
+
+    <string name="page_title_audios">Audios</string>
+
+    <string name="iv_content_poster">Poster</string>
+    <string name="ib_content_prev">Previous</string>
+    <string name="ib_content_close">Close</string>
+    <string name="ib_content_play_pause">Play/pause</string>
+    <string name="ib_content_next">Next</string>
+    <string name="ib_content_stop">Stop</string>
+
+    <string name="player_notification_channel_name">ru.egprojects.audio_player</string>
+    <string name="player_notification_channel_desc">Audio player</string>
 </resources>
