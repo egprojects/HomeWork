@@ -14,19 +14,25 @@ import ru.egprojects.androidlab.model.AppDatabase
 import ru.egprojects.androidlab.model.Task
 import ru.egprojects.androidlab.model.TaskDao
 import java.util.*
+import kotlin.coroutines.CoroutineContext
 
-class TaskDetailsFragment : Fragment() {
+class TaskDetailsFragment : Fragment(), CoroutineScope {
 
+    override val coroutineContext: CoroutineContext = SupervisorJob() + Dispatchers.Default
     private lateinit var taskDao: TaskDao
     private var task: Task? = null
     private var taskLoader: Deferred<Task>? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (arguments != null) taskLoader = GlobalScope.async(Dispatchers.IO) {
+        if (arguments != null) taskLoader = async {
             taskDao.getById(arguments!!.getInt(ARG_TASK_ID))
         }
         setHasOptionsMenu(true)
+    }
+
+    override fun onResume() {
+        super.onResume()
         activity?.title = getString(R.string.title_task_details)
     }
 
@@ -53,7 +59,7 @@ class TaskDetailsFragment : Fragment() {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.fragment_task_details, menu)
         menu.findItem(R.id.action_done).setOnMenuItemClickListener {
-            GlobalScope.launch(Dispatchers.IO) {
+            launch {
                 view?.apply {
                     val title = et_task_details_title.text.toString()
                     val date = Date(et_task_details_date.text.toString())
@@ -77,6 +83,12 @@ class TaskDetailsFragment : Fragment() {
 
             true
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        coroutineContext.cancelChildren()
+        coroutineContext.cancel()
     }
 
     companion object {

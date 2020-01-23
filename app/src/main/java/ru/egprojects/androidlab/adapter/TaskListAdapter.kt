@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_task_list_fragment.view.*
 import ru.egprojects.androidlab.R
 import ru.egprojects.androidlab.model.Task
@@ -26,7 +27,9 @@ class TaskListAdapter(
         holder.bind(getItem(position))
     }
 
-    inner class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class TaskViewHolder(
+            override val containerView: View
+    ) : RecyclerView.ViewHolder(containerView), LayoutContainer {
 
         fun bind(task: Task) {
             itemView.apply {
