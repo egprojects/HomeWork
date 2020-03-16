@@ -26,7 +26,7 @@ android {
     }
     buildTypes.each {
         it.buildConfigField 'String', 'API_ENDPOINT', baseUrl
-        it.buildConfigField 'String', 'API_KEY', API_KEY
+        it.buildConfigField 'String', 'API_KEY', apiKey
     }
     androidExtensions {
         experimental = true
